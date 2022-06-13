@@ -45,35 +45,36 @@ const HomeScreen = ({ navigation,route }) => {
 
     return(
         <ImageBackground source={require('../../assets/img/library-books-wood.jpg')} blurRadius={6} style={{width: '100%', height: '100%'}}>
-    <View style={{flex:1,display:'flex',justifyContent:'center',alignItems:'center'}}>
+            <View style={{flex:1,display:'flex',justifyContent:'center',alignItems:'center'}}>
         
-        <Text style={{color:'white',fontSize:20,fontWeight:'bold',textAlign:'center',marginTop:20,borderBottomWidth:2,padding:20}}>Liste des livres</Text>
+                <Text style={{color:'white',fontSize:20,fontWeight:'bold',textAlign:'center',marginTop:20,borderBottomWidth:2,padding:20}}>Liste des livres</Text>
 
-        <ScrollView style={{flex:1,margin:10}}>
-            {book.map( (book,index) => (
-                <Pressable key={index} onPress={()=>{
-                    navigation.navigate('Details',{
-                        title:book.title,
-                        author:book.author,
-                        category:book.category,
-                        _id:String(book._id)
-                    })
-                }}><View key={index} style={styles.book}>
-                <Text style={styles.text}>Titre: {book.title}</Text>
-                <Text style={styles.text}>Auteur: {book.author}</Text>
-                <Text style={styles.text}>Categorie: {book.category}</Text>
-                </View>
-                </Pressable>
-                )
-            )}
-        </ScrollView>
+                <ScrollView style={{flex:1,margin:10}}>
+                    {book.map( (book,index) => (
+                        <Pressable key={index} onPress={()=>{
+                            navigation.navigate('Details',{
+                                title:book.title,
+                                author:book.author,
+                                category:book.category,
+                                _id:String(book._id)
+                            })
+                        }}>
+                            <View key={index} style={styles.book}>
+                                <Text style={styles.text}>Titre: {book.title}</Text>
+                                <Text style={styles.text}>Auteur: {book.author}</Text>
+                                <Text style={styles.text}>Categorie: {book.category}</Text>
+                            </View>
+                        </Pressable>
+                        )
+                    )}
+                </ScrollView>
 
-        <Button style={{margin:10}} mode="contained" onPress={()=>{
-            navigation.navigate("ModifScreen")
-        }  }>Ajouter un livre</Button>
+                <Button style={{margin:10}} mode="contained" onPress={()=>{
+                    navigation.navigate("ModifScreen")
+                }  }>Ajouter un livre</Button>
         
-    </View>
-    </ImageBackground>
+            </View>
+        </ImageBackground>
     )
 }
 

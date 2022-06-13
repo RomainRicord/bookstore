@@ -40,34 +40,35 @@ const ModifScreen = ({ navigation,route }) => {
     <Formik initialValues={initalValues} validationSchema={validations} onSubmit={(values, actions) => {} }>
       {({ handleChange, handleBlur, handleSubmit, values, errors, touched, isValid }) => (
         <ImageBackground source={require('../../assets/img/library-books-wood.jpg')} blurRadius={6} style={{width: '100%', height: '100%'}}>
-    <View style={{flex:1,display:'flex',justifyContent:'center',alignItems:'center'}}><Text style={{color:'white',fontWeight:'bold',fontSize:25,marginBottom:20,borderBottomWidth:2,padding:20}}>Ajoute un livre</Text>
-
-    <TextInput style={styles.textinput} placeholder='Nom du livre' onChangeText={handleChange('title')} onBlur={handleBlur("title")}></TextInput>
-    {errors.title && touched.title ? <Text style={{color:'red'}}>{errors.title}</Text> : null}
-    <TextInput style={styles.textinput} placeholder='Auteur' onChangeText={handleChange("author")} onBlur={handleBlur("author")}></TextInput>
-    {errors.author && touched.author ? <Text style={{color:'red'}}>{errors.author}</Text> : null}
-    <TextInput style={styles.textinput}  placeholder='Categorie' onChangeText={handleChange("category")} onBlur={handleBlur("category")}></TextInput>
-    {errors.category && touched.category ? <Text style={{color:'red'}}>{errors.category}</Text> : null}
-    <Button style={{margin:10}} mode="contained" onPress={()=>{
-      handleSubmit();
-      if (isValid){
-      realm.write(()=>{
-        realm.create('Book_',{
-          _id:new ObjectID(),
-          author:values.author,
-          category:values.category,
-          title:values.title
-      })})
-    
-      navigation.navigate('Home');
-    }}}>Ajouter un livre</Button>
-    <Button style={{margin:10}} mode="contained" onPress={()=>{
-      realm.write(()=>{
-        realm.deleteAll()
-      })
-    }}>Clear REALM</Button>
-
-</View></ImageBackground>)}</Formik>)}
+          <View style={{flex:1,display:'flex',justifyContent:'center',alignItems:'center'}}>
+            <Text style={styles.title}>Ajoute un livre</Text>
+            <TextInput style={styles.textinput} placeholder='Nom du livre' onChangeText={handleChange('title')} onBlur={handleBlur("title")}></TextInput>
+            {errors.title && touched.title ? <Text style={{color:'red'}}>{errors.title}</Text> : null}
+            <TextInput style={styles.textinput} placeholder='Auteur' onChangeText={handleChange("author")} onBlur={handleBlur("author")}></TextInput>
+            {errors.author && touched.author ? <Text style={{color:'red'}}>{errors.author}</Text> : null}
+            <TextInput style={styles.textinput}  placeholder='Categorie' onChangeText={handleChange("category")} onBlur={handleBlur("category")}></TextInput>
+            {errors.category && touched.category ? <Text style={{color:'red'}}>{errors.category}</Text> : null}
+            <Button style={{margin:10}} mode="contained" onPress={()=>{
+              handleSubmit();
+              if (isValid){
+              realm.write(()=>{
+                realm.create('Book_',{
+                  _id:new ObjectID(),
+                  author:values.author,
+                  category:values.category,
+                  title:values.title
+              })})
+            
+              navigation.navigate('Home');
+            }}}>Ajouter un livre</Button>
+            <Button style={{margin:10}} mode="contained" onPress={()=>{
+              realm.write(()=>{
+                realm.deleteAll()
+              })
+            }}>Clear REALM</Button>
+          </View>
+        </ImageBackground>)}
+    </Formik>)}
 
 const styles = StyleSheet.create({
     button:{
@@ -83,6 +84,14 @@ const styles = StyleSheet.create({
       fontSize:20,
       fontWeight:'bold',
       textAlign:'center'
+    },
+    title:{
+      color:'white',
+      fontWeight:'bold',
+      fontSize:25,
+      marginBottom:20,
+      borderBottomWidth:2,
+      padding:20
     }
   })
 
