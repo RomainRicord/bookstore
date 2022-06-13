@@ -83,9 +83,6 @@ const ModifBook = ({ navigation,route }) => {
 )}
 
 const styles = StyleSheet.create({
-    button:{
-      display:'flex',justifyContent:'center',alignItems:'center',width:300,borderRadius:20,height:100,backgroundColor:"green",marginTop:20
-    },
     textinput:{
       width:300,
       height:50,

@@ -79,16 +79,6 @@ const HomeScreen = ({ navigation,route }) => {
 }
 
 const styles = StyleSheet.create({
-    button:{
-      display:'flex',
-      justifyContent:'center',
-      alignItems:'center',
-      width:300,
-      height:100,
-      backgroundColor:"green",
-      marginTop:20,
-      borderRadius:20
-    },
     textbutton:{
         color:'white',
         fontSize:20,

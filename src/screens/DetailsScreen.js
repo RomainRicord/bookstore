@@ -41,9 +41,6 @@ const DetailsScreen = ({ route, navigation }) => {
 }
 
 const styles = StyleSheet.create({
-    button:{
-      display:'flex',justifyContent:'center',alignItems:'center',width:300,height:100,backgroundColor:"green",marginTop:20,borderRadius:20
-    },
     textinput:{
       width:200,
       height:50
