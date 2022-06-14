@@ -55,7 +55,7 @@ const ModifBook = ({ navigation,route }) => {
                         {errors.category && touched.category ? <Text style={{color:'red'}}>{errors.category}</Text> : null}
                         <Button style={{margin:10}} mode="contained" onPress={()=>{
                             handleSubmit();
-                            if (isValid) {
+                            if (isValid)  {
                                 const book_ = realm.objects("Book_");
 
                                 book_.map((book2,index) => {

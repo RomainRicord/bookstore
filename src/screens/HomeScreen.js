@@ -58,7 +58,7 @@ const HomeScreen = ({ navigation,route }) => {
                                 category:book.category,
                                 _id:String(book._id)
                             })
-                        }}>
+                        }} style={{marginTop:20}}>
                             <View key={index} style={styles.book}>
                                 <Text style={styles.text}>Titre: {book.title}</Text>
                                 <Text style={styles.text}>Auteur: {book.author}</Text>
@@ -69,7 +69,7 @@ const HomeScreen = ({ navigation,route }) => {
                     )}
                 </ScrollView>
 
-                <Button style={{margin:10}} mode="contained" onPress={()=>{
+                <Button style={{marginBottom:20}} mode="contained" onPress={()=>{
                     navigation.navigate("ModifScreen")
                 }  }>Ajouter un livre</Button>
         
